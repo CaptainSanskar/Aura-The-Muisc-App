@@ -92,8 +92,8 @@ const sendNotificationViaAPI = async (notification) => {
     // NOTE: This should ideally be done from a backend server for security
     // For now, we'll use the REST API directly (not recommended for production)
     
-    const ONESIGNAL_APP_ID = 'YOUR_ONESIGNAL_APP_ID_HERE';
-    const ONESIGNAL_REST_API_KEY = 'YOUR_ONESIGNAL_REST_API_KEY_HERE';
+    const ONESIGNAL_APP_ID = '4d8d6572-7530-4341-b6c7-58a8f2eda340';
+    const ONESIGNAL_REST_API_KEY = 'os_v2_app_jwgwk4tvgbbudnwhlcupf3ndiaxagal4wsuedauspv2tjmku2modwqwtzqadtqksm6gskhy37qouv354xsycbfscg7fcuxkbz5rdfti';
 
     try {
         const response = await fetch('https://onesignal.com/api/v1/notifications', {

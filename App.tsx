@@ -181,12 +181,7 @@ export default function App() {
   };
 
   const handleRequestNotification = async () => {
-    if (!('Notification' in window)) {
-        alert('Notifications not supported on this device');
-        return;
-    }
-    
-    // Use OneSignal for push notifications
+    // Use OneSignal for push notifications (works in WebView/APK)
     if ((window as any).OneSignal) {
         const granted = await requestNotificationPermission();
         if (granted) {
@@ -195,17 +190,12 @@ export default function App() {
             if (username) {
                 await setUserPreferences(username, 'user');
             }
+        } else {
+            alert('Please enable notifications in your device settings to receive birthday reminders.');
         }
     } else {
-        // Fallback to native notifications
-        const result = await Notification.requestPermission();
-        if (result === 'granted') {
-            setNotificationsEnabled(true);
-            // Trigger SW check immediately
-            if (navigator.serviceWorker.controller) {
-                navigator.serviceWorker.controller.postMessage({ action: 'checkBirthdays' });
-            }
-        }
+        console.error('OneSignal SDK not loaded. Please check your internet connection.');
+        alert('Unable to initialize notifications. Please check your connection and try again.');
     }
   };
 

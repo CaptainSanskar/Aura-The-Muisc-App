@@ -84,8 +84,8 @@ const calculateNextAge = (birthDateString) => {
 // Send birthday notification via OneSignal API
 const sendBirthdayNotification = async (birthday, type) => {
     // Get keys from config (you'll update these in onesignal-config.js)
-    const ONESIGNAL_APP_ID = 'YOUR_ONESIGNAL_APP_ID_HERE'; // TODO: Replace with your App ID
-    const ONESIGNAL_REST_API_KEY = 'YOUR_ONESIGNAL_REST_API_KEY_HERE'; // TODO: Replace with your REST API Key
+    const ONESIGNAL_APP_ID = '4d8d6572-7530-4341-b6c7-58a8f2eda340'; // Your OneSignal App ID
+    const ONESIGNAL_REST_API_KEY = 'os_v2_app_jwgwk4tvgbbudnwhlcupf3ndiaxagal4wsuedauspv2tjmku2modwqwtzqadtqksm6gskhy37qouv354xsycbfscg7fcuxkbz5rdfti'; // Your REST API Key from OneSignal Dashboard
 
     let notification = {};
     const age = calculateNextAge(birthday.birthDate);
